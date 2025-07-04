@@ -19,11 +19,11 @@ function App() {
   const [openAppId, setOpenAppId] = useState<string | null>(null)
 
   const APPS = [
-    { id: 'about', label: 'About', icon: aboutIcon, component: About },
+    { id: 'about', label: 'about.txt', icon: aboutIcon, component: About },
     { id: 'projects', label: 'Projects', icon: projectsIcon, component: Projects},
     { id: 'experience', label: 'Experience', icon: experienceIcon, component: Experience },
-    { id: 'resume', label: 'Resume', icon: resumeIcon, component: Resume },
-    { id: 'github', label: 'GitHub', icon: githubIcon, component: GitHub },
+    { id: 'resume', label: 'resume.pdf', icon: resumeIcon, component: Resume },
+    { id: 'github', label: 'github', icon: githubIcon, component: GitHub },
     { id: 'contact', label: 'Contact', icon: contactIcon, component: Contact }
   ]
 
@@ -38,7 +38,13 @@ function App() {
               key={app.id}
               icon={app.icon}
               label={app.label}
-              onClick={() => { setOpenAppId(app.id) }}
+              onClick={() => { 
+                if (app.id === 'github') {
+                  window.open('https://github.com/iElvxn', '_blank')
+                } else {
+                  setOpenAppId(app.id)
+                }
+              }}
             />
           ))}
         </div>
@@ -50,8 +56,7 @@ function App() {
 
       {openApp && (
         <div className="app-window">
-          <button onClick={() => setOpenAppId(null)}>Close</button>
-          <openApp.component/>
+          <openApp.component onClick={() => setOpenAppId(null)} />
         </div>
       )}
     </>
