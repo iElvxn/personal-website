@@ -1,7 +1,7 @@
 import exitBtn from "../assets/exit.png";
 import resume from "../assets/resume.pdf"
 
-export function Resume({onClick}) {
+export function Resume({ onClick }: { onClick: () => void }) {
     return (
         <>
             <div className="navbar">

@@ -43,7 +43,7 @@ const PROJECTS: Project[] = [
     // Add more projects here...
 ]
 
-export function Projects({ onClick }) {
+export function Projects({ onClick }: { onClick: () => void }) {
     return (
         <>
             <div className="navbar">

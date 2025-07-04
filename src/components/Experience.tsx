@@ -1,6 +1,6 @@
 import exitBtn from "../assets/exit.png";
 
-export function Experience({onClick}) {
+export function Experience({ onClick }: { onClick: () => void }) {
     return (
         <>
             <div className="navbar">

@@ -2,7 +2,7 @@ import exitBtn from "../assets/exit.png";
 import profile from "../assets/profile.jpg";
 import { ReactTyped } from "react-typed";
 
-export function About({ onClick }) {
+export function About({ onClick }: { onClick: () => void }) {
     return (
         <>
             <div className="navbar">
