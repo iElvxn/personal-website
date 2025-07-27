@@ -2,6 +2,7 @@ import exitBtn from "../assets/exit.png";
 import mbtify from "../assets/mbtify.png"
 import pantryPal from "../assets/pantry-pal.png"
 import studyKitty from "../assets/studykitty.png"
+import digitClassification from "../assets/digit-classification.jpg"
 
 type Project = {
     title: string
@@ -16,15 +17,15 @@ const PROJECTS: Project[] = [
         title: 'Study Kitty',
         description: 'Built and deployed a full-stack mobile productivity app with gamified focus sessions using React Native and Expo. Designed a serverless backend with AWS services, reducing infrastructure costs by 40%. Integrated Clerk authentication for secure JWT verification and seamless login. Enhanced UX with local caching and optimistic UI updates accelerating app responsiveness by 30%.',
         tech: [ "TypeScript", "React Native", "AWS (API Gateway, Lambda, DynamoDB, S3)", "Expo"],
-        link: 'https://yourwebsite.com',
+        link: 'https://github.com/iElvxn/Study-Kitty',
         image: studyKitty
     },
     {
         title: 'Digit Classification AI',
         description: 'Developed a neural network in Python with TensorFlow and NumPy to classify handwritten digits with 97% accuracy. Preprocessed images for optimal results and used OpenCV and Matplotlib for real-time digit prediction and visualization.',
         tech: ["Python", "TensorFlow", "NumPy", "OpenCV", "Matplotlib"],
-        link: 'https://yourwebsite.com',
-        image: '/personal-website-screenshot.png'
+        link: 'https://github.com/iElvxn/digit-classification',
+        image: digitClassification
     },
     {
         title: 'PantryPal',
@@ -58,7 +59,11 @@ export function Projects({ onClick }: { onClick: () => void }) {
                         <div className={`project-row${i % 2 === 1 ? ' reverse' : ''}`} key={project.title}>
                             <div className="project-info">
                                 <h2 className="project-name">{project.title}</h2>
-                                <div className="project-tech">{project.tech.join(', ')}</div>
+                                <div className="tech-tags">
+                                    {project.tech.map(tech => (
+                                        <span key={tech} className="tech-tag">{tech}</span>
+                                    ))}
+                                </div>
                                 <p className="project-desc">{project.description}</p>
                                 {project.link && (
                                     <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
